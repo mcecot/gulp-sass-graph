@@ -125,7 +125,7 @@ module.exports = function (loadPaths) {
             }
 
             var relativePath = file.path.substr(file.cwd.length+1).replace(/\\/g, '/');
-            console.log("processing %s", relativePath);
+            //console.log("processing %s", relativePath);
 
             if(!graph[relativePath]) {
             	addToGraph(relativePath, function() { return file.contents.toString('utf8') });
@@ -135,7 +135,7 @@ module.exports = function (loadPaths) {
 
             // push ancestors into the pipeline
             visitAncestors(relativePath, function(node){
-            	console.log("processing %s, which depends on %s", node.path, relativePath)
+            	//console.log("processing %s, which depends on %s", node.path, relativePath)
             	this.push(new File({
             		cwd: file.cwd,
             		base: file.base,
